@@ -3,25 +3,89 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+    <title>Welcome to Twittler!</title>
   </head>
   <body>
-    <script>
+
+    <header id="title">Welcome to Twittler!</header>
+
+    <div class="body">
+      <div id="sidebar">
+        <img src=https://i.kinja-img.com/gawker-media/image/upload/c_lfill,w_768/17zqc2hunlmfxpng.png id="icon"/>
+        <span id="username">Username: </span><input type="text" id="username-input">
+        <span id="password">Password: </span><input type="text" id="password-input">
+        <input type="radio" id="radio" /><span id="remember">Remember Me</span>
+        <button type="button" id="login">Log in</button>
+          <ul class="nav-items">
+          <li class="nav-item child-1"><a href="#">Sign Up</a></li>
+          <li class="nav-item child-2"><a href="#">About</a></li>
+          <li class="nav-item child-3"><a href="#">Trending</a></li>
+          <li class="nav-item child-4"><a href="#">Help</a></li>
+          </ul>
+      </div>
+      
+      <div id="tweet-body">
+          <div id="create-tweet-div">
+            <span id="create-tweet">Create a Tweet:   </span><input type="text" id="create-tweet-input" />
+            <button type="button" id="tweet-button">Tweet!</button> 
+          </div> 
+          <button type="button" id="load-tweet-button">View 1 tweet!</button>
+            <div id="tweet-container"></div>
+      </div>
+
+    </div>
+  </body>
+  
+
+  <script>
 
       $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
+      var displayTweets = function(tweetList){
+        var tweetContainer = $("#tweet-container");
+        tweetContainer.html('');
+        var index = tweetList.length - 1; //index of the array youre on
+        while(index >= 0){ //while theres more than one tweet
+          var tweet = tweetList[index];
+          var tweetDiv = $('<div></div>'); //create a new div for the tweet
+          tweetDiv.addClass("tweetSection");
+          tweetDiv.attr('user', tweet.user); 
+          tweetDiv.text('@' + tweet.user + ': ' + tweet.message +  '\ncreated at ' + tweet.created_at.toDateString() + ' at ' + tweet.created_at.toLocaleTimeString());
+          tweetDiv.appendTo(tweetContainer);
+          index -= 1; //go to the next tweet
         }
+      }
+
+      $("#load-tweet-button").click(function(){
+        $("#load-tweet-button").text("Refresh tweets!");
+        displayTweets(streams.home)
+      })
+
+      function filterForTweets(event){
+
+      }
+
+      // function filterForTweets(event){
+      //   //select that specific tweet
+      //   var target = $(event.target);
+      //   //selecting that tweet's uername:
+      //   var username = target.attr('user');
+      //   //that usernames tweets
+      //   var userTweet = streams.users.user;
+      //   refreshTweets(userTweet);
+      // }
+
+      $("#tweet-button").click(function(){
+        var yourTweetVal = $("#create-tweet-input").val();
+        var yourTweet = writeTweet(yourTweetVal); //now the tweet is in an obj and it got pushed to the list of tweets
+        displayTweets(streams.home);
+      })
+
+      displayTweets(streams.home);
 
       });
-
     </script>
-  </body>
+
 </html>
