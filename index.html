@@ -16,7 +16,7 @@
         <img src=https://i.kinja-img.com/gawker-media/image/upload/c_lfill,w_768/17zqc2hunlmfxpng.png id="icon"/>
         <span id="username">Username: </span><input type="text" id="username-input">
         <span id="password">Password: </span><input type="text" id="password-input">
-        <input type="radio" id="radio" /><span id="remember">Remember Me</span>
+        <input type="checkbox" id="radio" /><span id="remember">Remember Me</span>
         <button type="button" id="login">Log in</button>
           <ul class="nav-items">
           <li class="nav-item child-1"><a href="#">Sign Up</a></li>
@@ -50,6 +50,7 @@
         while(index >= 0){ //while theres more than one tweet
           var tweet = tweetList[index];
           var tweetDiv = $('<div></div>'); //create a new div for the tweet
+          tweetDiv.css({"border-radius": "10px"});
           tweetDiv.addClass("tweetSection");
           tweetDiv.attr('user', tweet.user); //setting attr user as tweet.user
           tweetDiv.text('@' + tweet.user + ': ' + tweet.message +  '\ncreated at ' + tweet.created_at.toDateString() + ' at ' + tweet.created_at.toLocaleTimeString());
