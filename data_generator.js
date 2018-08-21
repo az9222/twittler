@@ -14,6 +14,13 @@ streams.users.douglascalhoun = [];
 streams.users.guest = [];
 window.users = Object.keys(streams.users);
 
+var avatars = {};
+avatars.shawndrost = "https://image.flaticon.com/icons/svg/826/826980.svg"; 
+avatars.sharksforcheap = "https://image.flaticon.com/icons/svg/826/826955.svg";
+avatars.mracus = "https://image.flaticon.com/icons/svg/826/826962.svg"; 
+avatars.douglascalhoun = "https://image.flaticon.com/icons/svg/826/826969.svg";
+avatars.guest = "https://image.flaticon.com/icons/svg/823/823270.svg";
+
 // utility function for adding tweets to our data structures
 var addTweet = function(newTweet){
   var username = newTweet.user;
