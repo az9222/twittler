@@ -19,8 +19,9 @@
     justify-content: flex-start;
     background-color: #92B8DE;
     width: 500px;
-    height: relative;
+    height: 1000px;
     align-content: stretch;
+    align-items: stretch;
     overflow: auto;
 }
 
@@ -194,3 +195,16 @@
 .nav-item{
     padding: 10px;
 }
+
+/* .trends {
+    height: 300px;
+    width: 300px;
+    background-color: #D1E2F3;
+    margin-left: -166px;
+    margin-top: 529px;
+    font-family: 'Russo One', sans-serif;
+    text-align: center;
+    color: #2A64A8;
+    font-size: 30px;
+    padding: 20px;
+} */

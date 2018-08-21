@@ -21,10 +21,10 @@
           <ul class="nav-items">
           <li class="nav-item child-1"><a href="#">Sign Up</a></li>
           <li class="nav-item child-2"><a href="#">About</a></li>
-          <li class="nav-item child-3"><a href="#">Trending</a></li>
+          <li class="nav-item child-3"><a href="#">Contact</a></li>
           <li class="nav-item child-4"><a href="#">Help</a></li>
           </ul>
-        <!-- <div class="trends">abc</div> -->
+        <!-- <div class="trends">Trends</div> -->
       </div>
       
       <div id="tweet-body">
@@ -94,6 +94,13 @@
     $("#create-tweet-input").val("");
     $("#create-tweet-input").css({"color": "#131313"});
   })
+
+  // function filterForHashtags(event){
+  //   var target = $(event.target); //selecting for a specific target
+  //   var username = target.attr('user');
+  //   var usernameTweets = streams.users[username]; 
+  //   displayTweets(usernameTweets);
+  // }
 
   displayTweets(streams.home);
 
